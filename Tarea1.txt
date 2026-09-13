@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{subcaption}
+\geometry{margin=2.5cm}
+\usepackage{float}
+
+% Comandos personalizados
+\newcommand{\raiz}[1]{\sqrt{#1}}
+\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdiffdos}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\diam}{\operatorname{diam}}
+
+% Enumeración
+\renewcommand{\theenumi}{\arabic{enumi}}
+
+\begin{document}
+
+%------ Encabezado --------%
+\begin{center}
+\begin{minipage}{3cm}
+    \centering
+    \includegraphics[height=3cm]{recursos/Logo_UNAM.png}
+\end{minipage}\hfill
+\begin{minipage}{10cm}
+    \centering
+    \textbf{\large Universidad Nacional Autónoma de México}\\
+    \textbf{Facultad de Ciencias}\\
+    Teoría de la Computación $|$ Grupo: 7084\\
+    Tarea 1\\
+    Frida Thais Esoinosa Romero\\
+    Ariel Pérez Cancino\\
+    Erika Renata Reyes Núñez\\
+\end{minipage}\hfill
+\begin{minipage}{3cm}
+    \centering
+    \includegraphics[height=3cm]{recursos/Logo_FC.png}
+\end{minipage}
+\end{center}
+\rule{\textwidth}{0.5pt}
+
+\section*{}
+\input{Ejercicios/ej1.txt}\newpage
+\input{Ejercicios/ej2.txt}\newpage
+\input{Ejercicios/ej3.txt}\newpage
+\input{Ejercicios/ej4.txt}\newpage
+\input{Ejercicios/ej5.txt}\newpage
+\input{Ejercicios/ej6.txt}\newpage
+\input{Ejercicios/ej7.txt}\newpage
+\input{Ejercicios/ej8.txt}\newpage
+\end{document}
