@@ -1,1 +1,75 @@
-3.-
+3.- Sea $L \subseteq \{a, b\}^*$ el lenguaje definido de forma inductiva por:
+\begin{itemize}
+    \item $\lambda \in L$
+    \item Si $w \in L$, entonces $wa \in L$ y $wba \in L$
+\end{itemize}
+
+% ------------------------- INCISO A -------------------------
+\subsection*{a) Prueba que para cualquier cadena $u \in L$, $u$ tiene mayor o igual cantidad de $a$'s que de $b$'s.}
+
+Demostración por inducción estructural sobre $L$
+Sea $N_a(u)$ el número de símbolos $a$ en la cadena $u$ y sea $N_b(u)$ el número de símbolos $b$ en la cadena $u$. Demostremos que $N_a(u) \ge N_b(u)$.
+
+\textbf{Caso base:} Si $u = \lambda$, entonces $N_a(\lambda) = 0$ y $N_b(\lambda) = 0$. Por lo tanto, se cumple trivialmente que $N_a(\lambda) \ge N_b(\lambda)$.
+
+\textbf{Hipótesis de inducción:} Supongamos que la propiedad se cumple para alguna cadena $w \in L$, es decir, que $N_a(w) \ge N_b(w)$.
+
+\textbf{Paso inductivo:} Evaluamos las reglas de formación:
+\begin{itemize}
+    \item \textbf{Caso 1: Sea $u = wa$} \\
+    Si agregamos una $a$, obtenemos que:
+    \begin{align*}
+        N_a(wa) &= N_a(w) + 1 \\
+        N_b(wa) &= N_b(w)
+    \end{align*}
+    Por nuestra hipótesis de inducción sabemos que $N_a(w) \ge N_b(w)$. Al sumar $1$ a $N_a(w)$, obtenemos $N_a(w) + 1 > N_b(w)$, por lo que se sigue cumpliendo que $N_a(wa) \ge N_b(wa)$.
+
+    \item \textbf{Caso 2: Sea $u = wba$} \\
+    Si agregamos ahora $ba$, obtenemos que:
+    \begin{align*}
+        N_a(wba) &= N_a(w) + 1 \\
+        N_b(wba) &= N_b(w) + 1
+    \end{align*}
+    Por nuestra hipótesis de inducción, $N_a(w) \ge N_b(w)$. Si sumamos $1$ a ambos lados de la desigualdad, se mantiene el orden:
+    \[ N_a(w) + 1 \ge N_b(w) + 1 \]
+    Esto significa que se sigue cumpliendo que $N_a(wba) \ge N_b(wba)$.
+\end{itemize}
+
+Queda demostrado por inducción estructural que $N_a(u) \ge N_b(u)$ para toda $u \in L$.
+
+
+% ------------------------- INCISO B -------------------------
+
+\subsection*{b) Prueba que para cualquier cadena $u \in L$, $u$ no tiene como subcadena $bb$.}
+
+Primero determinemos un lema auxiliar que nos ayudara: 
+\textit{Ninguna cadena $w \in L$ (distinta de $\lambda$) termina en $b$.}
+
+Demostración del lema
+Por inducción estructural:
+\begin{itemize}
+    \item \textbf{Caso base:} $\lambda$ no termina en $b$ (carece de elementos).
+    \item \textbf{Paso inductivo:} Por las reglas que nos brinda el problema, se generan cadenas $wa$ y $wba$. Ambas reglas agregan siempre una $a$ al final de la nueva cadena, por lo que nunca sucederá que una cadena termine en $b$.
+\end{itemize}
+
+
+Ahora probemos que cualquier cadena $u \in L$ no tiene como subcadena $bb$.
+
+Demostración por inducción estructural
+
+
+\textbf{Caso base:} Para $u = \lambda$. Como la cadena vacía carece de símbolos, es imposible que contenga la subcadena $bb$.
+
+\textbf{Hipótesis de inducción:} Supongamos que para alguna cadena $w \in L$, $w$ no contiene la subcadena $bb$.
+
+\textbf{Paso inductivo:} Evaluamos las reglas de formación:
+\begin{itemize}
+    \item \textbf{Caso 1: Para la cadena $wa$.} \\
+    Si concatenamos una $a$ al final de alguna cadena $w$, no se formará una subcadena $bb$ en la frontera puesto que el nuevo símbolo es una $a$. Como, por hipótesis de inducción, $w$ no contiene a la subcadena $bb$, entonces la nueva cadena $wa$ tampoco la contendrá.
+
+    \item \textbf{Caso 2: Para la cadena $wba$.} \\
+    Si concatenamos los símbolos $ba$ a alguna cadena $w$, debemos analizar la frontera. Por el lema demostrado al principio, sabemos que ninguna $w \in L$ termina en $b$. Dado que $w$ no termina en $b$, al concatenarle $ba$ es imposible que se forme la subcadena $bb$. Además, por hipótesis de inducción, sabemos que $w$ internamente no contiene subcadenas $bb$, y el sufijo $ba$ tampoco la contiene. Por lo tanto, la nueva cadena $wba$ estará libre de la subcadena $bb$.
+\end{itemize}
+
+Dado que ambos casos se cumplen, demostramos por inducción estructural que ninguna cadena $u \in L$ contiene la subcadena $bb$.
+
