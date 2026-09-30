@@ -1,1 +1,80 @@
-5.-
+2. Sea $\Sigma$ un alfabeto y sean $L_1, L_2, L_3 \subset \Sigma^*$. Diga si:
+
+\begin{enumerate}[label=\alph*)]
+    \item $L_1(L_2 \cap L_3) = L_1 L_2 \cap L_1 L_3$
+    \item $(L_1 L_2)^* = L_1^* L_2^*$
+\end{enumerate}
+
+\vspace{0.3cm}
+\noindent\textbf{a) $L_1(L_2 \cap L_3) = L_1 L_2 \cap L_1 L_3$}
+
+\vspace{0.2cm}
+\noindent
+\begin{minipage}[t]{0.62\textwidth}
+\underline{Contraejemplo}
+
+\vspace{0.25cm}
+\quad Sean $L_1 = \{ab, abc\}$, $L_2 = \{cba\}$, $L_3 = \{ba\}$
+
+\vspace{0.25cm}
+\quad $(L_2 \cap L_3) = \{cba\} \cap \{ba\} = \varnothing$
+
+\vspace{0.25cm}
+\quad $L_1(L_2 \cap L_3) = \{ab, abc\}\varnothing = \varnothing$
+
+\vspace{0.25cm}
+\quad $L_1 L_2 = \{ab, abc\} \cdot \{cba\} = \{abcba, abccba\}$
+
+\vspace{0.25cm}
+\quad $L_1 L_3 = \{ab, abc\} \cdot \{ba\} = \{abba, abcba\}$
+
+\vspace{0.25cm}
+\quad\quad $L_1 L_2 \cap L_1 L_3 = \{abcba\}$
+
+\vspace{0.25cm}
+\quad\quad $\varnothing \quad \neq \quad \{abcba\}$
+
+\vspace{0.3cm}
+$\therefore L_1(L_2 \cap L_3) \neq L_1 L_2 \cap L_1 L_3$
+\end{minipage}\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\raggedleft
+Sabemos que $\mathscr{L}(\alpha) \cap \mathscr{L}(\beta) = \mathscr{L}(\alpha \cap \beta)$ y $\mathscr{L}(\alpha\beta) = \mathscr{L}(\alpha) \cdot \mathscr{L}(\beta)$
+\end{minipage}
+
+\vspace{0.4cm}
+\hrule
+\vspace{0.4cm}
+
+\noindent\textbf{b) $(L_1 L_2)^* = L_1^* L_2^*$}
+
+\vspace{0.2cm}
+\noindent
+\begin{minipage}[t]{0.62\textwidth}
+\underline{Contraejemplo}
+
+\vspace{0.25cm}
+$L_1 = \{ab, abc\}, L_2 = \{cba\}$
+
+\vspace{0.25cm}
+$L_1 L_2 = \{ab \cdot cba, abc \cdot cba\} = \{abcba, abccba\}$
+
+\vspace{0.25cm}
+$L_1 L_2^{2} = \{abcbaabcba, abcbaabccba, abccbaabcba, abccbaabccba\}$
+
+\vspace{0.25cm}
+$L_1^* L_2^* = \{ab, abc, ab, abc\}\{cba, cba\}$
+
+\vspace{0.25cm}
+$w = abcbabcba \in (L_1 L_2)^*$
+
+\vspace{0.3cm}
+$\therefore (L_1 L_2)^* \neq L_1^* L_2^*$
+\end{minipage}\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\raggedleft
+$\mathscr{L}(A^*) = (\mathscr{L}(A))^*$
+
+\vspace{0.4cm}
+$\mathscr{L}(AB) = \mathscr{L}(A)\mathscr{L}(B)$
+\end{minipage}

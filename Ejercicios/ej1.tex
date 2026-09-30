@@ -1,5 +1,113 @@
+\vspace{-2cm}
+\noindent 1.- Sean $\Sigma$ un alfabeto, $w \in \Sigma^*$ y $n \in \mathbb{N}$. Prueba lo siguiente:
 
-\begin{enumerate}
-    \item[(a)] $(w^n)^R = (w^R)^n$
-    \item[(b)] $|w^n| = n \cdot |w|$
-\end{enumerate}
+\begin{multicols}{2}
+\textbf{a)} $(w^n)^R = (w^R)^n$
+
+\vspace{0.3cm}
+\underline{Caso base} $(n=0)$
+
+Usando def potencia, $(w^n)^R \Rightarrow (w^0) = \lambda$
+
+$(\lambda)^R = \lambda$ \quad $\checkmark$
+
+$(w^R)^n \Rightarrow (w^0)^n = (\lambda)^0 = \lambda$ \quad $\checkmark$
+
+$\therefore$ Se cumple para $n=0$
+
+\vspace{0.4cm}
+\underline{H. I.}
+
+Supongamos que se cumple para cualquier $k \in \mathbb{N}$
+\[
+(w^k)^R = (w^R)^k
+\]
+
+\vspace{0.4cm}
+\underline{Paso Inductivo}
+
+Sea $n = k+1$
+
+P.D. $(w^{k+1})^R = (w^R)^{k+1}$
+
+Usando la def recursiva de potencia, sabemos que $w^{k+1} = w^k w$, entonces:
+\begin{align*}
+(w^{k+1})^R &= (w^k w)^R \\
+&\overset{\text{Reversa}}{=} w^R (w^k)^R \\
+&\overset{\text{H.I}}{=} w^R (w^R)^k \\
+&\overset{\text{Potencia}}{=} (w^R)^{k+1}
+\end{align*}
+
+$\therefore (w^n)^R = (w^R)^n$
+
+\columnbreak
+
+\begin{flushright}
+$\cdot$ Concatenación: $(uv)w = u(vw)$
+
+\vspace{0.4cm}
+$\cdot$ $v\lambda = \lambda v = v$
+
+\vspace{0.4cm}
+$\cdot$ Reverso $(w^R)$ \\
+$(uv)^R = v^R u^R$
+
+\vspace{0.4cm}
+$\cdot$ Potencia $(w^n)$: \\
+$w^0 = \lambda$ \\
+$w^{n+1} = w^n w$
+
+\vspace{0.6cm}
+$\circ$ Def recursiva de Potencia \\
+$w^{k+1} = w^k w$
+
+\vspace{0.8cm}
+Longitud de la cadena \\
+vacía: $|\lambda| = 0$
+
+\vspace{0.8cm}
+* Propiedad de la longitud \\
+sobre la concatenación:
+$|u \cdot v| = |u| + |v|$
+
+\end{flushright}
+\end{multicols}
+
+
+\vspace{0.4cm}
+\hrule
+\vspace{0.4cm}
+
+
+\textbf{b)} $|w^n| = n \cdot |w|$
+
+\underline{Caso base} $n=0$
+
+$w^n \Rightarrow |w^0| = |\lambda| = 0$
+
+$n \cdot |w| = 0 \cdot |w| = |\lambda| = 0$
+
+$\therefore$ Se cumple para $n=0$
+
+\vspace{0.8em}
+\underline{H. I.}
+
+Supongamos que se cumple para cualquier $k \in \mathbb{N}$
+\[
+|w^k| = k \cdot |w|
+\]
+
+\underline{Paso Inductivo}
+
+Sea $k = k+1$
+
+$|w^{k+1}| = k+1 \cdot |w|$
+
+\begin{align*}
+|w^{k+1}| &= |w^k w| \\
+&\overset{*}{=} |w^k| + |w| \\
+&\overset{\text{H.I}}{=} k \cdot |w| + |w| \\
+&\overset{\circ}{=} k \cdot |w|
+\end{align*}
+
+$\therefore$ Se cumple que $|w^n| = n \cdot |w|$
