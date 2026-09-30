@@ -1,1 +1,51 @@
 4.- 
+Utilizando doble contención \\
+$\subseteq$ $\mid$
+
+P.D que $L\subseteq L^{+}$
+
+Por definción de cerradura inductiva dada en clase:
+ 
+$L^{+}=\bigcup_{n\ge1}L^{n}=L^{1}\cup L^{2}\cup\dots$
+
+Para $n=1$ aplicando la definicón de potencia:
+$L^{1}=L \cdot L^{0}=L \cdot \{\lambda\}=L$
+
+Dado que $L^{1}=L$, se cumple trivialmente que 
+$$L\subseteq L^{+}$$
+
+$\supseteq$ $\mid$
+
+Como $L^{+}=\bigcup_{n\ge1}L^{n}$ para demostrar que $L^{+}\subseteq L$ hacemos inducción sobre $n\ge1$.
+
+-Caso Base: $(n=1)$:
+$$L^{1}=L\cdot L^{0} \overset{\text{def}}{=} L\{\lambda\}=L$$
+
+Dado que $L^{1}=L$, se cumple trivialmente que
+$$L \subseteq L$$
+
+-Hipótesis de Inducción:
+Supongamos que se cumple para k, es decir:
+$$L^{k}\subseteq L$$
+
+-Paso Inductivo:
+P.D que $L^{k+1}\subseteq L$ \\
+Por definicón de potencia:
+$$L^{k+1}=L^{k}\cdot L$$
+
+Por Hipotesis de Inducción sabemos que:
+$$L^{k}\subseteq L$$
+Entonces:
+$$L^{k+1}=L^{k}\cdot L \subseteq L\cdot L$$
+Por H.I del problema $(L^{2} \subseteq L)$
+Asi:
+$$L^{k+1} = L^{k}\cdot L$$
+$$L^{k} \cdot L \subseteq L^{2} \subseteq L$$
+Entonces:
+$$L^{k+1} \subseteq L$$
+
+Por lo tanto
+$$L^{+}=\bigcup_{n\ge1}L^{n}\subseteq L$$
+
+Al haber demostrado ambas contenciones, concluimos que:
+$$L^{+}=L$$
