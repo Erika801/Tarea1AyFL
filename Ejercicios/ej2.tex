@@ -1,1 +1,128 @@
-2.- 
+2.- Utilizaremos dole contención: \\
+
+\underline{$\subseteq$}
+
+P.D para toda cadena $w\in L$, se cumple $w=w^{R}$
+
+Utilizando Inducción:
+
+-Caso Base:
+\begin{itemize}
+
+
+\item $w =\lambda$:
+
+Por definición recursiva de la reversa, sabemos que $\lambda^{R}=\lambda$
+
+Por lo tanto se cumple
+
+$\lambda = \lambda^{R}$
+
+\item $(w = a \mid a \in\Sigma)$:
+
+por definicón recursiva de la reversa:
+
+$$a^{R}=(\lambda a)^{R}=a\cdot\lambda^{R}=a\cdot\lambda=a$$
+
+por lo tanto $a = a^{R}$
+\end{itemize}
+-Hipótesis de Inducción:
+
+Supongamos que para toda cadena $w\in L$, se cumple:
+
+$$w=w^{R}$$
+
+-Paso Inductivo:
+
+P.D que: 
+$$(awa)^{R}=awa$$
+
+por la propiedad de la reversa de una concatenación $(\alpha\beta\gamma)^{R}=\gamma^{R}\beta^{R}\alpha^{R}$ 
+
+obtenemos:
+
+$$((awa)^{R}=(a^{R})\cdot(w^{R})\cdot(a^{R}))$$
+
+Aplicando el caso base $(a^{R}=a)$:
+
+$$a^{R}\cdot w^{R}\cdot a^{R}=a\cdot w^{R}\cdot a$$
+
+Aplicando la hipótesis de inducción $(w^{R}=w)$:
+$$a\cdot w\cdot a=awa$$
+
+Por lo tanto 
+$$(awa)^{R}=awa$$
+
+Se cumple que 
+
+$$L\subseteq\{w\in\Sigma^{*}\mid w=w^{R}\}$$
+
+\medskip
+\underline{$\supseteq$}
+
+P.D que $\{w\in\Sigma^{*}\mid w=w^{R}\}\subseteq L$
+
+Si $w\in\Sigma^{*}$ es palindromo (es decir $w=w^{R}$), entonces $w\in L$.
+
+Haremos inducción sobre la longitud de $w$ ($|w|= n$), ya que el conjunto de palíndromos está definida por propiedades (como la longitud de la cadena) y no por una definición recursiva.
+
+-Caso Base:
+\begin{itemize}
+\item $|w|=0$: \\
+Si $|w|=0$ la unica cadena que cuumple con esta propiedad es 
+$$w=\lambda$$
+
+\item $|w|=\lambda$: \\
+Por definción de $L$, sabemos que $\lambda\in L$
+
+\item $|w|=1$: \\
+Si $|w|=1$, entonces 
+$$w=a$$
+para $a\in\Sigma$.
+
+Por definción de $L$, sabemos que $a\in L$ 
+
+\end{itemize}
+
+-Hipótesis de Inducción:
+
+Supongamos que para roda cadena $w\in\Sigma^{*}$ con longitud:
+$ 0 \leq |w| \leq n$, con $n \geq 2$, si w es un palíndromo $(w =w^{R})$, entonces $w\in L$.
+
+-Paso Inductivo:
+
+Sea $w\in\Sigma^{*}$ con $|w|= n\geq 2$ tal que $w=w^{R}$, w es un palíndromo
+
+P.D que $w\in L$
+
+Como $|w| \geq 2$, podemos escribir:
+$$w = \alpha \cdot u \cdot \beta$$ donde $\alpha,\beta\in\Sigma$ y $u\in\Sigma^{*}$
+
+Además $|w| = |\alpha| + |u| + |\beta|$, es decir:
+$$|w| = 1 + |u| + 1$$
+$$|w| = |u| + 2$$
+$$|u| = |w| - 2$$
+$$|u| = n - 2$$
+
+Aplicando $(w = w^{R})$ obtenemos:
+$$\alpha \cdot u \cdot \beta = (\alpha \cdot u \cdot \beta)^{R}= \beta^{R} \cdot u^{R} \cdot \alpha^{R}$$
+$$= \beta \cdot u^{R} \cdot \alpha$$
+
+Igualando los extremos de la cadena obtenemos:
+$$\alpha = \beta$$
+$$u = u^{R}$$
+
+Podemos deducir que:
+\begin{itemize}
+    \item $w$ es de la forma $w = \alpha \cdot u \cdot \alpha$ 
+    \item $u$ es un palíndromo, ya que $u = u^{R}$ y $|u| = n - 2 < n$
+\end{itemize}
+
+Por hipótesis de inducción, $u\in L$ 
+Como $u \in L$ y $\alpha \in \Sigma$, por el tercer punto de la definción de $L$:
+$$\alpha \cdot u \cdot \alpha \in L$$
+Es decir:
+$$w \in L$$
+
+Al haber demostrado ambas contenciones, concluimos que:
+$$L = \{w\in\Sigma^{*}\mid w=w^{R}\}$$
