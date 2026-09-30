@@ -1,1 +1,98 @@
-8.- 
+8.- Escribe una gramática que genere un fragmento del español capaz de producir las oraciones ``el gato duerme'' y ``el perro come la croqueta'', pero no ``duerme el gato'' ni ``el croqueta come gato''. Identifica claramente terminales, no terminales, símbolo inicial y producciones.
+
+\vspace{0.5cm}
+
+\vspace{0.2cm}
+\noindent Para evitar generar oraciones como ``duerme el gato'' ó ``el croqueta come gato'', voy a generar una serie de reglas:
+
+\begin{enumerate}
+    \item Todas las oraciones deben empezar con un artículo
+    \item Deben de concordar el género  y el pronombre \\
+    así se evita ``el croqueta''
+    \item Después de un sustantivo, debe de ir un verbo, cumpliendo así la siguiente estructura: \\
+    \hspace*{1cm} pronombre + sustantivo + verbo
+    \item Pueden haber dos tipos de verbo
+    \begin{itemize}
+        \item Verbo seguido del complemento
+        \item Verbo sin complemento
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\noindent $G = \langle V, T, S, P \rangle$
+
+\vspace{0.2cm}
+\noindent $T = \langle \text{el}, \text{la}, \text{gato}, \text{perro}, \text{croqueta}, \text{duerme}, \text{come} \rangle$
+
+\vspace{0.2cm}
+\noindent $V = \{ S, \text{Sujeto}_m, \text{Sujeto}_f, A_M, A_F, M, F, V_c, V \}$
+
+\vspace{0.4cm}
+\noindent $S$ : Símbolo inicial
+
+\vspace{0.2cm}
+\noindent $\text{Suj}_m$ : Sujeto masculino
+
+\vspace{0.2cm}
+\noindent $\text{Suj}_f$ : Sujeto femenino
+
+\vspace{0.2cm}
+\noindent $A_M$ : Artículo masculino
+
+\vspace{0.2cm}
+\noindent $A_F$ : Artículo femenino
+
+\vspace{0.2cm}
+\noindent $M$ : Sustantivo Masculino
+
+\vspace{0.2cm}
+\noindent $F$ : Sustantivo Femenino
+
+\vspace{0.2cm}
+\noindent $V_c$ : Verbo con complemento
+
+\vspace{0.2cm}
+\noindent $V$ : Verbo sin complemento
+
+\vspace{0.6cm}
+\underline{\noindent Reglas de producción}
+
+\vspace{0.3cm}
+\noindent $S \rightarrow \text{Suj}_m V \mid \text{Suj}_m V_c \, \text{Suj}_f$
+
+\vspace{0.25cm}
+\noindent $\text{Suj}_m \rightarrow A_M M$
+
+\vspace{0.25cm}
+\noindent $A_M \rightarrow \text{el}$
+
+\vspace{0.25cm}
+\noindent $A_F \rightarrow \text{la}$
+
+\vspace{0.25cm}
+\noindent $M \rightarrow \text{gato} \mid \text{perro}$
+
+\vspace{0.25cm}
+\noindent $F \rightarrow \text{croqueta}$
+
+\vspace{0.25cm}
+\noindent $V \rightarrow \text{duerme}$
+
+\vspace{0.25cm}
+\noindent $V_c \rightarrow \text{come}$
+
+\vspace{0.3cm}
+\noindent ``el gato duerme''
+
+\vspace{0.25cm}
+\noindent $S \rightarrow \text{Suj}_m V \rightarrow A_M M V \rightarrow \text{el} \, M V$ \\
+\hspace*{0.5cm} $\rightarrow \text{el gato} \, V \rightarrow \text{el gato duerme}$
+
+\vspace{0.6cm}
+\noindent ``el perro come la croqueta''
+
+\vspace{0.25cm}
+\noindent $S \rightarrow \text{Suj}_m V_c \, \text{Suj}_f \rightarrow A_M M V_c \, \text{Suj}_f$ \\
+\hspace*{0.5cm} $\rightarrow \text{el perro come} \, \text{Suj}_f \rightarrow \text{el perro come} \, A_F F$ \\
+\hspace*{0.5cm} $\rightarrow \text{el perro come la} \, F \rightarrow \text{el perro come la croqueta}$
